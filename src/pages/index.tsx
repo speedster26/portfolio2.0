@@ -7,13 +7,10 @@ import Projects from 'components/Projects'
 import Skills from 'components/Skills'
 import WorkExperience from 'components/WorkExperience'
 import { GetStaticProps } from 'next'
+import { groq } from 'next-sanity'
 import Head from 'next/head'
+import { sanityClient } from '../../sanity'
 import { Experience, PageInfo, Project, Skill, Social } from 'typing'
-import { fetchExperience } from 'utils/fetchExperience'
-import { fetchPageInfo } from 'utils/fetchPageInfo'
-import { fetchProjects } from 'utils/fetchProjects'
-import { fetchSkills } from 'utils/fetchSkills'
-import { fetchSocials } from 'utils/fetchSocials'
 
 type Props = {
   pageInfo: PageInfo;
@@ -44,7 +41,7 @@ export default function Home({ pageInfo, experiences, skills, projects, socials 
 
       {/* Experience */}
       <section id='experience' className='snap-center'>
-        <WorkExperience/>
+        <WorkExperience experiences={experiences}/>
       </section>
 
       {/* Skills */}
@@ -54,23 +51,35 @@ export default function Home({ pageInfo, experiences, skills, projects, socials 
 
       {/* Projects */}
       <section id='projects' className='snap-start'>
-        <Projects/>
+        <Projects projects={projects} />
       </section>
 
       {/* Contact Me */}
       <section id='contact' className='snap-start'>
-        <ContactMe/>
+        <ContactMe pageInfo={pageInfo}/>
       </section>
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo()
-  const experiences: Experience[] = await fetchExperience()
-  const skills: Skill[] = await fetchSkills()
-  const projects: Project[] = await fetchProjects()
-  const socials: Social[] = await fetchSocials()
+  const query1 = groq`*[_type == "experience"]{
+    ...,
+    technologies[]->
+  }`;
+  const query2 = groq`*[_type == "pageInfo"][0]`;
+  const query3 = groq`*[_type == "project"]{
+    ...,
+    technologies[]->
+  }`;
+  const query4 = groq`*[_type == "skill"]`;
+  const query5 = groq`*[_type == "social"]`;
+  
+  const experiences: Experience[] = await sanityClient.fetch(query1)
+  const pageInfo: PageInfo = await sanityClient.fetch(query2)
+  const projects: Project[] = await sanityClient.fetch(query3)
+  const skills: Skill[] = await sanityClient.fetch(query4)
+  const socials: Social[] = await sanityClient.fetch(query5)
 
   return {
     props: {

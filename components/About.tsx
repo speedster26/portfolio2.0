@@ -18,7 +18,7 @@ const About = ({pageInfo}: Props) => {
         <div className='md:space-y-10 space-y-5 px-0 md:px-10'>
             <h4 className='text-xl md:text-4xl font-semibold'>Here is a <span className='underline decoration-[#F7AB0B]/50'>little</span> background</h4>
             <p className='text-xs md:text-base'>
-                {pageInfo?.bgInfo}
+                {pageInfo?.bgInfo.slice(0, 1000)}
             </p>
         </div>
     </motion.div>
