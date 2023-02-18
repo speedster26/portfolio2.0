@@ -33,17 +33,19 @@ const ContactMe = ({pageInfo}: Props) => {
                     </span>
                 </h4>
                 <div className='space-y-5 flex flex-col'>
-                    <div className='flex items-center space-x-4'>
+                    <div className='flex items-center space-x-4 md:
+                    justify-center'>
                         <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
                         <p className='md:text-2xl text-lg'>{pageInfo.email}</p>
                     </div>
-                    <div className='flex items-center space-x-4'>
+                    <div className='flex items-center space-x-4 md:
+                    justify-center'>
                         <PhoneIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
                         <p className='md:text-2xl text-lg'>{pageInfo.phoneNumber}</p>
                     </div>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 w-full mx-auto '>
-                    <div className='flex md:flex-row flex-col space-y-2 md:pace-x-2'>
+                <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col space-y-2 md:w-fit w-full mx-auto '>
+                    <div className='flex md:flex-row flex-col space-y-2 md:space-y-0 md:space-x-2'>
                         <input {...register('name')} placeholder='Name' className='contactInput' type="text" />
                         <input {...register('email')} placeholder='Email' className='contactInput' type="email" />
                     </div>
