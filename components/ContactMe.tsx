@@ -28,19 +28,19 @@ const ContactMe = ({pageInfo}: Props) => {
             <div className='flex flex-col space-y-10 px-16 mx-8'>
                 <h4 className='md:text-4xl text-2xl font-semibold text-left md:text-center'>
                     I have got just what you need.{" "}
-                    <span className='decoration-[#F7AB0A] underline'>
+                    <span className='decoration-[#31e390] underline'>
                         Lets Talk.
                     </span>
                 </h4>
                 <div className='space-y-5 flex flex-col'>
                     <div className='flex items-center space-x-4 md:
                     justify-center'>
-                        <EnvelopeIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+                        <EnvelopeIcon className='text-[#31e390] h-7 w-7 animate-pulse' />
                         <p className='md:text-2xl text-lg'>{pageInfo.email}</p>
                     </div>
                     <div className='flex items-center space-x-4 md:
                     justify-center'>
-                        <PhoneIcon className='text-[#F7AB0A] h-7 w-7 animate-pulse' />
+                        <PhoneIcon className='text-[#31e390] h-7 w-7 animate-pulse' />
                         <p className='md:text-2xl text-lg'>{pageInfo.phoneNumber}</p>
                     </div>
                 </div>
@@ -50,8 +50,8 @@ const ContactMe = ({pageInfo}: Props) => {
                         <input {...register('email')} placeholder='Email' className='contactInput' type="email" />
                     </div>
                     <input {...register('subject')} placeholder='Subject' className='contactInput' type="text" />
-                    <textarea {...register('message')} placeholder='Message' className='contactInput scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80' />
-                    <button type='submit' className='bg-[#F7AB0A] md:py-5 md:px-10 rounded-md text-black font-bold text-lg'>Submit</button>
+                    <textarea {...register('message')} placeholder='Message' className='contactInput scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#31e390]/80' />
+                    <button type='submit' className='bg-[#31e390] md:py-5 md:px-10 rounded-md text-black font-bold text-lg'>Submit</button>
                 </form>
             </div>
         </div>

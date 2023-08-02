@@ -22,7 +22,7 @@ type Props = {
 
 export default function Home({ pageInfo, experiences, skills, projects, socials }: Props) {
   return (
-    <div className='bg-[rgb(36,36,36)] h-screen text-white snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scroll-smooth scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80'>
+    <div className='bg-[rgb(36,36,36)] h-screen text-white snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scroll-smooth scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#31e390]/80'>
       <Head>
         <title>Harshit&apos;s Portfolio</title>
       </Head>
@@ -81,6 +81,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const skills: Skill[] = await sanityClient.fetch(query4)
   const socials: Social[] = await sanityClient.fetch(query5)
 
+  console.log(experiences);
+  
   return {
     props: {
       pageInfo,

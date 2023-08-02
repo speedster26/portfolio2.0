@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { urlFor } from '../sanity'
 import { Experience } from 'typing'
+import Image from 'next/image'
 
 type Props = {
   experience: Experience
@@ -17,7 +18,7 @@ const ExperienceCard = ({experience}: Props) => {
             <div className='flex space-x-1 my-2'>
               {experience.technologies.map((tech,i) => (
 
-                <img key={i} className='w-5 h-5 md:h-10 md:w-10 rounded-full' src={urlFor(tech?.icon).url()} alt={experience.company} />
+                <Image key={i} width={20} height={20} className='w-5 h-5 md:h-10 md:w-10 rounded-full' src={urlFor(tech?.icon).url()} alt={experience.company} />
 
               ))}
             </div>

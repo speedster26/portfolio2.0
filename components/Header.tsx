@@ -17,18 +17,17 @@ const Header = ({socials}: Props) => {
       <motion.div initial={{ x: -500, opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ duration: 1.5 }} className='flex items-center'>
         {/*Social Icons  */}
         {socials.map((social) => (
-          <SocialIcon key={social._id} url={social.url} fgColor='gray' bgColor='transparent' />
+          <SocialIcon key={social._id} url={social.url} fgColor='gray' bgColor='transparent' className='hover:scale-105 transition-all ease-in-out'/>
         ))}
-        {/* <SocialIcon url="https://github.com/speedster26" fgColor='gray' bgColor='transparent' />
-        <SocialIcon url="https://github.com/speedster26" fgColor='gray' bgColor='transparent' />
-        <SocialIcon url="https://github.com/speedster26" fgColor='gray' bgColor='transparent' /> */}
 
       </motion.div>
-      <motion.div initial={{ x: 500, opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ duration: 1.5 }} className='flex items-center text-gray-300 cursor-pointer'>
+      <motion.div initial={{ x: 500, opacity: 0, scale: 0.5 }} animate={{ x: 0, opacity: 1, scale: 1 }} transition={{ duration: 1.5 }} className='flex items-center text-gray-300 cursor-pointer hover:scale-110 z-30'>
         {/* <Link href={"#contact"}> */}
+        <div className=' hover:scale-105 ease-in-out transition-all'>
 
         <SocialIcon onClick={()=>router.push("#contact")} className='cursor-pointer' network='email' fgColor='gray' bgColor='transparent' />
         <p className='uppercase hidden md:inline-flex text-sm text-gray-400'><Link href={"#contact"}>Get in Touch</Link></p>
+        </div>
         {/* </Link> */}
       </motion.div>
     </header>
