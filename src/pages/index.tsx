@@ -11,6 +11,7 @@ import { groq } from 'next-sanity'
 import Head from 'next/head'
 import { sanityClient } from '../../sanity'
 import { Experience, PageInfo, Project, Skill, Social } from 'typing'
+import Script from 'next/script'
 
 type Props = {
   pageInfo: PageInfo;
@@ -23,9 +24,22 @@ type Props = {
 export default function Home({ pageInfo, experiences, skills, projects, socials }: Props) {
   return (
     <div className='bg-[rgb(36,36,36)] h-screen text-white snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scroll-smooth scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#31e390]/80'>
+
       <Head>
         <title>Harshit&apos;s Portfolio</title>
       </Head>
+      {/* Google Analytics */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-6D5FFSRHZT" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-6D5FFSRHZT');
+        `}
+      </Script>
+
       {/* Header */}
       <Header socials={socials}/>
 
